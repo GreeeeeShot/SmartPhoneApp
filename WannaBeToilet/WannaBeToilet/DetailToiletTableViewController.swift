@@ -15,10 +15,15 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
     var url : String?
     var parser = XMLParser()
     let postsname : [String] = ["구분","화장실명","소재지도로명주소", "소재지지번주소", "남녀공용화장실여부", "남성용-대변기수", "남성용-소변기수", "남성용-장애인용대변기수","남성용-장애인용소변기수","남성용-어린이용대변기수", "남성용-어린이용소변기수","여성용-대변기수","여성용-장애인용대변기수","여성용-어린이용대변기수","관리기관명","전화번호","개방시간","설치년도","데이터기준일자","시군명","소재지우편번호"]
-    
-    var posts : [String] = ["","","","","","","","","","","","","","","","","","","","",""]
+
+    let postskey : [String] = ["PUBLFACLT_DIV_NM", "PBCTLT_PLC_NM", "REFINE_ROADNM_ADDR", "REFINE_LOTNO_ADDR", "MALE_FEMALE_TOILET_YN", "MALE_WTRCLS_CNT", "MALE_UIL_CNT", "MALE_DSPSN_WTRCLS_CNT", "MALE_DSPSN_UIL_CNT", "MALE_CHILDUSE_WTRCLS_CNT", "MALE_CHILDUSE_UIL_CNT", "FEMALE_WTRCLS_CNT", "FEMALE_DSPSN_WTRCLS_CNT", "FEMALE_CHILDUSE_WTRCLS_CNT", "MANAGE_INST_NM", "MANAGE_INST_TELNO", "OPEN_TM_INFO", "INSTL_YY", "DATA_STD_DE", "SIGUN_NM", "REFINE_ZIP_CD"]
+
+    //var posts : [String] = ["","","","","","","","","","","","","","","","","","","","",""]
+    var posts = NSMutableArray()
+    var saveposts = NSMutableArray()
     
     var element = NSString()
+    var elements = NSMutableDictionary()
     
     var pub = NSMutableString()
     var name = NSMutableString()
@@ -41,6 +46,9 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
     var datastd = NSMutableString()
     var sigun = NSMutableString()
     var refinezip = NSMutableString()
+    var selectedname : String?
+    
+    
     
     func beginParsing()
     {
@@ -49,6 +57,7 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
         parser.delegate = self
         parser.parse()
         detailTableView!.reloadData()
+        //print(selectedname!)
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
@@ -56,7 +65,8 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
         element = elementName as NSString
         if (elementName as NSString).isEqual(to: "row")
         {
-            posts = ["","","","","","","","","","",""]
+            //posts = ["","","","","","","","","","","","","","","","","","","","",""]
+            posts = NSMutableArray()
             
             pub = NSMutableString()
             pub = ""
@@ -188,83 +198,104 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
             refinezip.append(string)
         }
     }
-    
+    var count = 0
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
     {
-        if (elementName as NSString).isEqual(to: "item") {
+        if (elementName as NSString).isEqual(to: "row") {
+                
+            //print(count)
+            
             if !pub.isEqual(nil) {
-                posts[0] = pub as String
+                elements.setObject(pub, forKey: "PUBLFACLT_DIV_NM" as NSCopying)
+                posts.add(elements)
             }
             if !name.isEqual(nil) {
-                posts[1] = name as String
+                elements.setObject(name, forKey: "PBCTLT_PLC_NM" as NSCopying)
+                posts.add(elements)
             }
             if !roadaddr.isEqual(nil) {
-                posts[2] = roadaddr as String
+                elements.setObject(roadaddr, forKey: "REFINE_ROADNM_ADDR" as NSCopying)
+                posts.add(elements)
             }
             if !lotnoaddr.isEqual(nil) {
-                posts[3] = lotnoaddr as String
+                elements.setObject(lotnoaddr, forKey: "REFINE_LOTNO_ADDR" as NSCopying)
+                posts.add(elements)
             }
             if !malfmal.isEqual(nil) {
-                posts[4] = malfmal as String
+                elements.setObject(malfmal, forKey: "MALE_FEMALE_TOILET_YN" as NSCopying)
+                posts.add(elements)
             }
             if !mwtr.isEqual(nil) {
-                posts[5] = mwtr as String
+                elements.setObject(mwtr, forKey: "MALE_WTRCLS_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !muil.isEqual(nil) {
-                posts[6] = muil as String
+                elements.setObject(muil, forKey: "MALE_UIL_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !mdspwtr.isEqual(nil) {
-                posts[7] = mdspwtr as String
+                elements.setObject(mdspwtr, forKey: "MALE_DSPSN_WTRCLS_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !mdspuil.isEqual(nil) {
-                posts[8] = mdspuil as String
+                elements.setObject(mdspuil, forKey: "MALE_DSPSN_UIL_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !mchdwrt.isEqual(nil) {
-                posts[9] = mchdwrt as String
+                elements.setObject(mchdwrt, forKey: "MALE_CHILDUSE_WTRCLS_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !mchduil.isEqual(nil) {
-                posts[10] = mchduil as String
-            }
-            if !pub.isEqual(nil) {
-                posts[0] = pub as String
-            }
-            if !name.isEqual(nil) {
-                posts[1] = name as String
-            }
-            if !roadaddr.isEqual(nil) {
-                posts[2] = roadaddr as String
+                elements.setObject(mchduil, forKey: "MALE_CHILDUSE_UIL_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !fwtr.isEqual(nil) {
-                posts[3] = fwtr as String
+                elements.setObject(fwtr, forKey: "FEMALE_WTRCLS_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !fdspwtr.isEqual(nil) {
-                posts[4] = fdspwtr as String
+                elements.setObject(fdspwtr, forKey: "FEMALE_DSPSN_WTRCLS_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !fchdwrt.isEqual(nil) {
-                posts[5] = fchdwrt as String
+                elements.setObject(fchdwrt, forKey: "FEMALE_CHILDUSE_WTRCLS_CNT" as NSCopying)
+                posts.add(elements)
             }
             if !managename.isEqual(nil) {
-                posts[6] = managename as String
+                elements.setObject(managename, forKey: "MANAGE_INST_NM" as NSCopying)
+                posts.add(elements)
             }
             if !tel.isEqual(nil) {
-                posts[7] = tel as String
+                elements.setObject(tel, forKey: "MANAGE_INST_TELNO" as NSCopying)
+                posts.add(elements)
             }
             if !open.isEqual(nil) {
-                posts[8] = open as String
+                elements.setObject(open, forKey: "OPEN_TM_INFO" as NSCopying)
+                posts.add(elements)
             }
             if !instlyy.isEqual(nil) {
-                posts[9] = instlyy as String
+                elements.setObject(instlyy, forKey: "INSTL_YY" as NSCopying)
+                posts.add(elements)
             }
             if !datastd.isEqual(nil) {
-                posts[10] = datastd as String
+                elements.setObject(datastd, forKey: "DATA_STD_DE" as NSCopying)
+                posts.add(elements)
             }
             if !sigun.isEqual(nil) {
-                posts[9] = sigun as String
+                elements.setObject(sigun, forKey: "SIGUN_NM" as NSCopying)
+                posts.add(elements)
             }
             if !refinezip.isEqual(nil) {
-                posts[10] = refinezip as String
+                elements.setObject(refinezip, forKey: "REFINE_ZIP_CD" as NSCopying)
+                posts.add(elements)
+            }
+        
+            
+            if (posts.object(at: 1) as AnyObject).value(forKey: postskey[1]) as! NSString as String == selectedname{
+                count += 1
             }
         }
+        
     }
     
     override func viewDidLoad() {
@@ -291,6 +322,7 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        //print(posts.count)
         return posts.count
     }
 
@@ -302,8 +334,10 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
         }
         
         cell.textLabel?.text = postsname[indexPath.row]
-        cell.detailTextLabel?.text = posts[indexPath.row]
+        //cell.detailTextLabel?.text = posts[indexPath.row] as! String
+        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: postskey[indexPath.row]) as! NSString as String
         
+        print(cell)
         return cell as UITableViewCell
     }
     

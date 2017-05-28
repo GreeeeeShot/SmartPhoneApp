@@ -1,4 +1,4 @@
-//
+ //
 //  ToiletTableViewController.swift
 //  WannaBeToilet
 //
@@ -111,8 +111,9 @@ class ToiletTableViewController: UITableViewController, XMLParserDelegate {
                 let indexPath = tableView.indexPath(for: cell)
                 hospitalname = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "PBCTLT_PLC_NM") as! NSString as String
                 hospitalname_utf8 = hospitalname.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                if let detailHospitalTableViewController = segue.destination as? DetailToiletTableViewController{
-                    detailHospitalTableViewController.url = url
+                if let detailToiletTableViewController = segue.destination as? DetailToiletTableViewController{
+                    detailToiletTableViewController.url = url
+                    detailToiletTableViewController.selectedname = hospitalname
                 }
             }
         }
