@@ -189,7 +189,14 @@
                             <outlet property="delegate" destination="vyj-Ja-FvQ" id="rNt-W8-4d1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="화장실 TableView" id="mqo-8c-FWR"/>
+                    <navigationItem key="navigationItem" title="화장실 TableView" id="mqo-8c-FWR">
+                        <barButtonItem key="leftBarButtonItem" title="cancel" id="UNb-Xn-dPx"/>
+                        <barButtonItem key="rightBarButtonItem" title="지도표시" id="YLJ-47-jh0">
+                            <connections>
+                                <segue destination="63m-8b-DYI" kind="show" identifier="segueToMapView" id="ibe-rY-UQ1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tcData" destination="mah-aM-O4f" id="0Eq-sW-2c8"/>
                     </connections>
@@ -197,6 +204,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1DV-sT-L7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1035" y="3465"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="x8h-6Q-j2S">
+            <objects>
+                <viewController id="63m-8b-DYI" customClass="MapViewController" customModule="WannaBeToilet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G92-gZ-Cfm"/>
+                        <viewControllerLayoutGuide type="bottom" id="x4F-tG-nUE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M9F-QT-Xgv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UV9-Yk-rDD">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="UV9-Yk-rDD" id="Ti2-kD-Fa8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wkf-sO-PKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="3465"/>
         </scene>
         <!--Detail Toilet Table View Controller-->
         <scene sceneID="YDm-TA-dOa">

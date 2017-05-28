@@ -11,6 +11,8 @@
 		037BF8741ED72ED90043F956 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BF8731ED72ED90043F956 /* CityViewController.swift */; };
 		038496CE1EDA980200721A4E /* ToiletTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038496CD1EDA980200721A4E /* ToiletTableViewController.swift */; };
 		038496D01EDAB1EA00721A4E /* DetailToiletTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038496CF1EDAB1EA00721A4E /* DetailToiletTableViewController.swift */; };
+		038496D21EDAC37D00721A4E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038496D11EDAC37D00721A4E /* MapViewController.swift */; };
+		038496D41EDAC3D200721A4E /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038496D31EDAC3D200721A4E /* Toilet.swift */; };
 		0391E26D1ED1E66C00B64885 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0391E26C1ED1E66C00B64885 /* AppDelegate.swift */; };
 		0391E26F1ED1E66C00B64885 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0391E26E1ED1E66C00B64885 /* ViewController.swift */; };
 		0391E2721ED1E66C00B64885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0391E2701ED1E66C00B64885 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		037BF8731ED72ED90043F956 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		038496CD1EDA980200721A4E /* ToiletTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletTableViewController.swift; sourceTree = "<group>"; };
 		038496CF1EDAB1EA00721A4E /* DetailToiletTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailToiletTableViewController.swift; sourceTree = "<group>"; };
+		038496D11EDAC37D00721A4E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		038496D31EDAC3D200721A4E /* Toilet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
 		0391E2691ED1E66C00B64885 /* WannaBeToilet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WannaBeToilet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0391E26C1ED1E66C00B64885 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0391E26E1ED1E66C00B64885 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				037BF8731ED72ED90043F956 /* CityViewController.swift */,
 				038496CD1EDA980200721A4E /* ToiletTableViewController.swift */,
 				038496CF1EDAB1EA00721A4E /* DetailToiletTableViewController.swift */,
+				038496D11EDAC37D00721A4E /* MapViewController.swift */,
+				038496D31EDAC3D200721A4E /* Toilet.swift */,
 			);
 			path = WannaBeToilet;
 			sourceTree = "<group>";
@@ -149,12 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				038496D41EDAC3D200721A4E /* Toilet.swift in Sources */,
 				0391E26F1ED1E66C00B64885 /* ViewController.swift in Sources */,
 				038496CE1EDA980200721A4E /* ToiletTableViewController.swift in Sources */,
 				037BF8721ED72B370043F956 /* SpeechViewController.swift in Sources */,
 				0391E26D1ED1E66C00B64885 /* AppDelegate.swift in Sources */,
 				037BF8741ED72ED90043F956 /* CityViewController.swift in Sources */,
 				038496D01EDAB1EA00721A4E /* DetailToiletTableViewController.swift in Sources */,
+				038496D21EDAC37D00721A4E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

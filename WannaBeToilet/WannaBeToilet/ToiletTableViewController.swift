@@ -101,6 +101,11 @@ class ToiletTableViewController: UITableViewController, XMLParserDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if segue.identifier == "segueToMapView" {
+            if let mapViewController = segue.destination as? MapViewController{
+                mapViewController.posts = posts
+            }
+        }
         if segue.identifier == "segueToToiletDetail" {
             if let cell = sender as? UITableViewCell{
                 let indexPath = tableView.indexPath(for: cell)
