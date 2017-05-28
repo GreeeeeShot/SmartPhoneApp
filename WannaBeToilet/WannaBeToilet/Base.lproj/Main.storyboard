@@ -190,7 +190,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="화장실 TableView" id="mqo-8c-FWR">
-                        <barButtonItem key="leftBarButtonItem" title="cancel" id="UNb-Xn-dPx"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="9pr-7k-Bh4">
+                            <connections>
+                                <segue destination="nWy-hU-pdr" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="Pvu-6l-0mj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="지도표시" id="YLJ-47-jh0">
                             <connections>
                                 <segue destination="63m-8b-DYI" kind="show" identifier="segueToMapView" id="ibe-rY-UQ1"/>
@@ -202,8 +206,9 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1DV-sT-L7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nWy-hU-pdr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1035" y="3465"/>
+            <point key="canvasLocation" x="-1059" y="3378"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="x8h-6Q-j2S">
@@ -390,6 +395,7 @@
         <!--지역검색-->
         <scene sceneID="MBE-nd-w0B">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xn8-Hz-KNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ywE-VB-Okn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="지역검색" id="OMn-Zq-awC"/>
                     <toolbarItems/>
@@ -402,7 +408,6 @@
                         <segue destination="AF1-zC-c3R" kind="relationship" relationship="rootViewController" id="W3H-dU-Sw1"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xn8-Hz-KNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1035" y="799"/>
         </scene>
@@ -428,6 +433,7 @@
         <!--Navigation Controller-->
         <scene sceneID="b3X-I5-SI9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Otb-hV-G1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n5n-PC-FsY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oyO-Q2-96q">
@@ -439,9 +445,8 @@
                         <segue destination="vyj-Ja-FvQ" kind="relationship" relationship="rootViewController" id="Sii-88-c2a"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Otb-hV-G1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1035" y="2528"/>
+            <point key="canvasLocation" x="-1035" y="2596"/>
         </scene>
     </scenes>
 </document>

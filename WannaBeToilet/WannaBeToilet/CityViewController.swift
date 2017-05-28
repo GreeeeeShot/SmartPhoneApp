@@ -20,6 +20,10 @@ class CityViewController: UIViewController , UIPickerViewDataSource, UIPickerVie
     
     var sgguCd : String = "41110"//디폴트시구코드 = 광진구
     
+    @IBAction func doneToPickerViewController(segue:UIStoryboardSegue){
+        
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
