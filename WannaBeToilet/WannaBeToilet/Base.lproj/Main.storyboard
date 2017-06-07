@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -287,7 +287,7 @@
         <!--지도검색-->
         <scene sceneID="X0M-Bn-jWg">
             <objects>
-                <viewController title="지도검색" id="Cg8-jC-zJo" sceneMemberID="viewController">
+                <viewController title="지도검색" id="Cg8-jC-zJo" customClass="NavigationViewController" customModule="WannaBeToilet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q3t-jV-Mi5"/>
                         <viewControllerLayoutGuide type="bottom" id="qRU-Pe-nyT"/>
@@ -305,6 +305,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="거리검색" id="GEH-ef-GuW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="reV-BD-fQ7" id="qdA-e4-USm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpB-PT-7df" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
