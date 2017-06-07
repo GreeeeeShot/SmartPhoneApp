@@ -19,6 +19,9 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
     let postskey : [String] = ["PUBLFACLT_DIV_NM", "PBCTLT_PLC_NM", "REFINE_ROADNM_ADDR", "REFINE_LOTNO_ADDR", "MALE_FEMALE_TOILET_YN", "MALE_WTRCLS_CNT", "MALE_UIL_CNT", "MALE_DSPSN_WTRCLS_CNT", "MALE_DSPSN_UIL_CNT", "MALE_CHILDUSE_WTRCLS_CNT", "MALE_CHILDUSE_UIL_CNT", "FEMALE_WTRCLS_CNT", "FEMALE_DSPSN_WTRCLS_CNT", "FEMALE_CHILDUSE_WTRCLS_CNT", "MANAGE_INST_NM", "MANAGE_INST_TELNO", "OPEN_TM_INFO", "INSTL_YY", "DATA_STD_DE", "SIGUN_NM", "REFINE_ZIP_CD"]
 
     //var posts : [String] = ["","","","","","","","","","","","","","","","","","","","",""]
+    
+    var detailData = NSDictionary()
+    
     var posts = NSMutableArray()
     var saveposts = NSMutableArray()
     
@@ -53,9 +56,9 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
     func beginParsing()
     {
         posts = []
-        parser = XMLParser(contentsOf:(URL(string:url!))!)!
+        //parser = XMLParser(contentsOf:(URL(string:url!))!)!
         parser.delegate = self
-        parser.parse()
+        //parser.parse()
         detailTableView!.reloadData()
         //print(selectedname!)
     }
@@ -323,7 +326,7 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //print(posts.count)
-        return posts.count
+        return detailData.count-2
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -333,9 +336,11 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate 
             cell = Bundle.main.loadNibNamed("ToiletCell", owner: self, options: nil)?[0] as! UITableViewCell;
         }
         
+        
         cell.textLabel?.text = postsname[indexPath.row]
         //cell.detailTextLabel?.text = posts[indexPath.row] as! String
-        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: postskey[indexPath.row]) as! NSString as String
+        //cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: postskey[indexPath.row]) as! NSString as String
+        cell.detailTextLabel?.text = detailData.value(forKey: postskey[indexPath.row]) as! NSString as String
         
         print(cell)
         return cell as UITableViewCell
