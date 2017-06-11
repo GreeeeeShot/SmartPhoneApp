@@ -67,8 +67,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //let initialLocation = CLLocation(latitude: 37.5384514, longitude: 127.0709764)
-        let initialLocation = CLLocation(latitude: 37.3387522, longitude: 126.7315038)
-        centerMapOnLocation(location: initialLocation)
+        //let initialLocation = CLLocation(latitude: (posts[0] as AnyObject).value(forKey: "REFINE_WGS84_LOGT"), longitude: (posts[0] as AnyObject).value(forKey: "REFINE_WGS84_LAT"))
+        //centerMapOnLocation(location: initialLocation)
         mapView.delegate = self
         loadInitalData()
         mapView.addAnnotations(toilets)
