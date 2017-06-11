@@ -20,6 +20,33 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToMap" {
+            if let tapbarController = segue.destination as? TabBarController{
+                tapbarController.segueValue = "Map"
+            }
+        }
+        if segue.identifier == "segueToSound" {
+            if let tapbarController = segue.destination as? TabBarController{
+                tapbarController.segueValue = "Sound"
+            }
+        }
+        if segue.identifier == "segueToCity" {
+            if let tapbarController = segue.destination as? TabBarController{
+                tapbarController.segueValue = "City"
+            }
+        }
+        if segue.identifier == "segueToSource" {
+            if let tapbarController = segue.destination as? TabBarController{
+                tapbarController.segueValue = "Source"
+            }
+        }
+        if segue.identifier == "segueToKeyword" {
+            if let tapbarController = segue.destination as? TabBarController{
+                tapbarController.segueValue = "Keyword"
+            }
+        }
+    }
 
 }
 
