@@ -10,8 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var second = 0
+    var timer = Timer()
+
+    func timerFunc()
+    {
+        second += 1
+        if (second == 2)
+        {
+            timer.invalidate()
+            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.goMain), userInfo: nil, repeats: false)
+        }
+    }
+    
+    func goMain()
+    {
+        self.performSegue(withIdentifier: "mainSegue", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.timerFunc), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,6 +41,7 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+/*
         if segue.identifier == "segueToMap" {
             if let tapbarController = segue.destination as? TabBarController{
                 tapbarController.segueValue = "Map"
@@ -45,7 +66,7 @@ class ViewController: UIViewController {
             if let tapbarController = segue.destination as? TabBarController{
                 tapbarController.segueValue = "Keyword"
             }
-        }
+        }*/
     }
 
 }

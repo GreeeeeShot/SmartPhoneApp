@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eRY-jw-ut1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Cn0-eB-ApC">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,7 +45,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cmh-5Z-vWd">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="559-kz-eMU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="559-kz-eMU">
                             <connections>
                                 <segue destination="LDv-6W-1CQ" kind="show" identifier="segueToKeywordSearch" id="j4Y-Qa-Z5D"/>
                             </connections>
@@ -157,7 +157,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="INc-HV-qes">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ANE-kC-DHF">
+                        <barButtonItem key="rightBarButtonItem" title="지도표시" id="ANE-kC-DHF">
                             <connections>
                                 <segue destination="rRe-8s-2EY" kind="show" identifier="segueToMapView" id="P1w-mE-L1w"/>
                             </connections>
@@ -301,7 +301,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="rc6-AC-UZL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="fcA-RE-u7z">
+                        <barButtonItem key="rightBarButtonItem" title="지도표시" id="fcA-RE-u7z">
                             <connections>
                                 <segue destination="Lx0-Be-Mro" kind="show" identifier="segueToMapView" id="jcW-Q6-WkF"/>
                             </connections>
@@ -430,7 +430,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="화장실 TableView" id="mqo-8c-FWR">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="9pr-7k-Bh4">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9pr-7k-Bh4">
                             <connections>
                                 <segue destination="nWy-hU-pdr" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="Pvu-6l-0mj"/>
                             </connections>
@@ -575,9 +575,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="개발자  한국산업기술대학교 권준범, 김성두  OpenAPI 제공 - 경기 데이터 드림       http://openapi.gg.go.kr/Publtolt" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTR-2i-6lo">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTR-2i-6lo">
                                 <rect key="frame" x="16" y="20" width="288" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">개발자  한국산업기술대학교 권준범, 김성두  OpenAPI 제공 - 경기 데이터 드림       http://openapi.gg.go.kr/Publtolt  인트로 및 아이콘 이미지 - 네이버카페 피버당       http://cafe.naver.com/feverdang</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -682,6 +683,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvX-OA-OZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1241" y="-789"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YmP-1n-VZZ">
+            <objects>
+                <viewController id="Cn0-eB-ApC" customClass="ViewController" customModule="WannaBeToilet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ONA-EF-ScS"/>
+                        <viewControllerLayoutGuide type="bottom" id="O0v-ss-Xw6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qxK-H9-0SH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ddong.png" translatesAutoresizingMaskIntoConstraints="NO" id="FVb-UM-qxP">
+                                <rect key="frame" x="85" y="120" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="QLK-uj-0mT"/>
+                                    <constraint firstAttribute="height" constant="150" id="veH-mC-WLT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아 X 마려워" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-r7-7zJ">
+                                <rect key="frame" x="68" y="382" width="184" height="48"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FVb-UM-qxP" firstAttribute="centerX" secondItem="qxK-H9-0SH" secondAttribute="centerX" id="8uF-wH-400"/>
+                            <constraint firstItem="FVb-UM-qxP" firstAttribute="top" secondItem="ONA-EF-ScS" secondAttribute="bottom" constant="100" id="HTt-xN-tiO"/>
+                            <constraint firstItem="JBQ-r7-7zJ" firstAttribute="centerX" secondItem="qxK-H9-0SH" secondAttribute="centerX" id="Kkr-Xh-8cc"/>
+                            <constraint firstItem="O0v-ss-Xw6" firstAttribute="top" secondItem="JBQ-r7-7zJ" secondAttribute="bottom" constant="50" id="RDT-4k-4oa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="eRY-jw-ut1" kind="show" identifier="mainSegue" id="RUU-FV-FqZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3B-RF-26l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1260" y="-1725"/>
         </scene>
         <!--지역검색-->
         <scene sceneID="MBE-nd-w0B">
@@ -795,4 +838,7 @@
             <point key="canvasLocation" x="4455" y="2743"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ddong.png" width="80" height="80"/>
+    </resources>
 </document>

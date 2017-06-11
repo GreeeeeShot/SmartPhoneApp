@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0319C1301EED770C00978F58 /* ddong.png in Resources */ = {isa = PBXBuildFile; fileRef = 0319C12F1EED770C00978F58 /* ddong.png */; };
 		037BF8721ED72B370043F956 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BF8711ED72B370043F956 /* SpeechViewController.swift */; };
 		037BF8741ED72ED90043F956 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BF8731ED72ED90043F956 /* CityViewController.swift */; };
 		0381F7CE1EE7E16E00E6B3B1 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0381F7CD1EE7E16E00E6B3B1 /* NavigationViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0319C12F1EED770C00978F58 /* ddong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ddong.png; sourceTree = "<group>"; };
 		037BF8711ED72B370043F956 /* SpeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
 		037BF8731ED72ED90043F956 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		0381F7CD1EE7E16E00E6B3B1 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				0391E26C1ED1E66C00B64885 /* AppDelegate.swift */,
 				0391E26E1ED1E66C00B64885 /* ViewController.swift */,
 				0391E2701ED1E66C00B64885 /* Main.storyboard */,
+				0319C12F1EED770C00978F58 /* ddong.png */,
 				0391E2731ED1E66C00B64885 /* Assets.xcassets */,
 				0391E2751ED1E66C00B64885 /* LaunchScreen.storyboard */,
 				0391E2781ED1E66C00B64885 /* Info.plist */,
@@ -154,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0319C1301EED770C00978F58 /* ddong.png in Resources */,
 				0391E2771ED1E66C00B64885 /* LaunchScreen.storyboard in Resources */,
 				0391E2741ED1E66C00B64885 /* Assets.xcassets in Resources */,
 				0391E2721ED1E66C00B64885 /* Main.storyboard in Resources */,
