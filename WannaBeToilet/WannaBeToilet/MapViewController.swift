@@ -17,7 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     var posts = NSMutableArray()
     
-    let regionRadius: CLLocationDistance = 5000
+    let regionRadius: CLLocationDistance = 500
     
     func centerMapOnLocation(location: CLLocation){
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
@@ -67,11 +67,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //let initialLocation = CLLocation(latitude: 37.5384514, longitude: 127.0709764)
-        //let initialLocation = CLLocation(latitude: (posts[0] as AnyObject).value(forKey: "REFINE_WGS84_LOGT"), longitude: (posts[0] as AnyObject).value(forKey: "REFINE_WGS84_LAT"))
-        //centerMapOnLocation(location: initialLocation)
-        mapView.delegate = self
         loadInitalData()
         mapView.addAnnotations(toilets)
+        let initialLocation = CLLocation(latitude: toilets[0].coordinate.latitude, longitude: toilets[0].coordinate.longitude)
+        centerMapOnLocation(location: initialLocation)
+        mapView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 

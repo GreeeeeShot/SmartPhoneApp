@@ -19,6 +19,8 @@
 		0391E2721ED1E66C00B64885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0391E2701ED1E66C00B64885 /* Main.storyboard */; };
 		0391E2741ED1E66C00B64885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0391E2731ED1E66C00B64885 /* Assets.xcassets */; };
 		0391E2771ED1E66C00B64885 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0391E2751ED1E66C00B64885 /* LaunchScreen.storyboard */; };
+		03A2335A1EED135F0037E0CD /* KeywordSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A233591EED135F0037E0CD /* KeywordSearchTableViewController.swift */; };
+		03A2335C1EED2A3B0037E0CD /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A2335B1EED2A3B0037E0CD /* KeywordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		0391E2731ED1E66C00B64885 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0391E2761ED1E66C00B64885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0391E2781ED1E66C00B64885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03A233591EED135F0037E0CD /* KeywordSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordSearchTableViewController.swift; sourceTree = "<group>"; };
+		03A2335B1EED2A3B0037E0CD /* KeywordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				038496D11EDAC37D00721A4E /* MapViewController.swift */,
 				038496D31EDAC3D200721A4E /* Toilet.swift */,
 				0381F7CD1EE7E16E00E6B3B1 /* NavigationViewController.swift */,
+				03A233591EED135F0037E0CD /* KeywordSearchTableViewController.swift */,
+				03A2335B1EED2A3B0037E0CD /* KeywordViewController.swift */,
 			);
 			path = WannaBeToilet;
 			sourceTree = "<group>";
@@ -161,12 +167,14 @@
 				038496D41EDAC3D200721A4E /* Toilet.swift in Sources */,
 				0391E26F1ED1E66C00B64885 /* ViewController.swift in Sources */,
 				038496CE1EDA980200721A4E /* ToiletTableViewController.swift in Sources */,
+				03A2335C1EED2A3B0037E0CD /* KeywordViewController.swift in Sources */,
 				0381F7CE1EE7E16E00E6B3B1 /* NavigationViewController.swift in Sources */,
 				037BF8721ED72B370043F956 /* SpeechViewController.swift in Sources */,
 				0391E26D1ED1E66C00B64885 /* AppDelegate.swift in Sources */,
 				037BF8741ED72ED90043F956 /* CityViewController.swift in Sources */,
 				038496D01EDAB1EA00721A4E /* DetailToiletTableViewController.swift in Sources */,
 				038496D21EDAC37D00721A4E /* MapViewController.swift in Sources */,
+				03A2335A1EED135F0037E0CD /* KeywordSearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

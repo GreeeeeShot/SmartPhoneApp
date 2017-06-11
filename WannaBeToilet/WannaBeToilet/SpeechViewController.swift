@@ -119,6 +119,16 @@ class SpeechViewController: UIViewController {
     }
     
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!){
+        if segue.identifier == "segueToKeywordSearch"{
+            if let navController = segue.destination as? UINavigationController {
+                if let hospitalTableViewController = navController.topViewController as? KeywordSearchTableViewController {
+                    hospitalTableViewController.keyword = TextView.text
+                }
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

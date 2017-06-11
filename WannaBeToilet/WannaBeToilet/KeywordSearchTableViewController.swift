@@ -1,36 +1,36 @@
 //
-//  DetailToiletTableViewController.swift
+//  KeywordSearchTableViewController.swift
 //  WannaBeToilet
 //
-//  Created by ㅇ on 2017. 5. 28..
+//  Created by ㅇ on 2017. 6. 11..
 //  Copyright © 2017년 JUNEBUM KWEON. All rights reserved.
 //
 
 import UIKit
-import MapKit
 
-class DetailToiletTableViewController: UITableViewController, XMLParserDelegate, MKMapViewDelegate {
+class KeywordSearchTableViewController: UITableViewController, XMLParserDelegate {
 
-    @IBOutlet var detailTableView: UITableView!
+    @IBOutlet var tcData: UITableView!
     
-    var url : String?
+    var url : String = "http://openapi.gg.go.kr/Publtolt?KEY=c3599d84eb594408b1735412f90f7fdb&pSize=1000&pIndex="
+    
     var parser = XMLParser()
-    let postsname : [String] = ["구분","화장실명","소재지도로명주소", "소재지지번주소", "남녀공용화장실여부", "남성용-대변기수", "남성용-소변기수", "남성용-장애인용대변기수","남성용-장애인용소변기수","남성용-어린이용대변기수", "남성용-어린이용소변기수","여성용-대변기수","여성용-장애인용대변기수","여성용-어린이용대변기수","관리기관명","전화번호","개방시간","설치년도","데이터기준일자","시군명","소재지우편번호"]
-
-    let postskey : [String] = ["PUBLFACLT_DIV_NM", "PBCTLT_PLC_NM", "REFINE_ROADNM_ADDR", "REFINE_LOTNO_ADDR", "MALE_FEMALE_TOILET_YN", "MALE_WTRCLS_CNT", "MALE_UIL_CNT", "MALE_DSPSN_WTRCLS_CNT", "MALE_DSPSN_UIL_CNT", "MALE_CHILDUSE_WTRCLS_CNT", "MALE_CHILDUSE_UIL_CNT", "FEMALE_WTRCLS_CNT", "FEMALE_DSPSN_WTRCLS_CNT", "FEMALE_CHILDUSE_WTRCLS_CNT", "MANAGE_INST_NM", "MANAGE_INST_TELNO", "OPEN_TM_INFO", "INSTL_YY", "DATA_STD_DE", "SIGUN_NM", "REFINE_ZIP_CD"]
-
-    //var posts : [String] = ["","","","","","","","","","","","","","","","","","","","",""]
-    
-    var detailData = NSDictionary()
     
     var posts = NSMutableArray()
-    var saveposts = NSMutableArray()
+    var postsArray = NSMutableArray()
     
-    var element = NSString()
+    var list = NSMutableArray()
+    
     var elements = NSMutableDictionary()
+    var element = NSString()
+    
+    var yadmNm = NSMutableString()
+    var addr = NSMutableString()
+    
+    var XPos = NSMutableString()
+    var YPos = NSMutableString()
     
     var pub = NSMutableString()
-    var name = NSMutableString()
     var roadaddr = NSMutableString()
     var lotnoaddr = NSMutableString()
     var malfmal = NSMutableString()
@@ -52,16 +52,48 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate,
     var refinezip = NSMutableString()
     var selectedname : String?
     
+    var hospitalname = ""
+    var hospitalname_utf8 = ""
     
+    var keyword: String? = ""
     
     func beginParsing()
     {
+        postsArray = []
         posts = []
-        //parser = XMLParser(contentsOf:(URL(string:url!))!)!
-        //parser.delegate = self
-        //parser.parse()
-        detailTableView!.reloadData()
-        //print(selectedname!)
+        var i = 0
+        while(i < 5){
+            let pageurl = url + String(i+1)
+            parser = XMLParser(contentsOf:(URL(string:pageurl))!)!
+            parser.delegate = self
+            parser.parse()
+            i+=1
+        }
+        SearchKeyword()
+        tcData!.reloadData()
+    }
+    
+    func SearchKeyword()
+    {
+        list = []
+        for post in posts{
+            let name = (post as AnyObject).value(forKey: "PBCTLT_PLC_NM") as! NSString as String
+            let Laddr = (post as AnyObject).value(forKey: "REFINE_ROADNM_ADDR") as! NSString as String
+            let Taddr = (post as AnyObject).value(forKey: "REFINE_LOTNO_ADDR") as! NSString as String
+            
+            if (name.contains(keyword!))
+            {
+                list.add(post)
+            }
+            else if(Laddr.contains(keyword!))
+            {
+                list.add(post)
+            }
+            else if(Taddr.contains(keyword!))
+            {
+                list.add(post)
+            }
+        }
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
@@ -69,13 +101,20 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate,
         element = elementName as NSString
         if (elementName as NSString).isEqual(to: "row")
         {
-            //posts = ["","","","","","","","","","","","","","","","","","","","",""]
-            posts = NSMutableArray()
+            elements = NSMutableDictionary()
+            elements = [:]
+            yadmNm = NSMutableString()
+            yadmNm = ""
+            addr = NSMutableString()
+            addr = ""
+            
+            XPos = NSMutableString()
+            XPos = ""
+            YPos = NSMutableString()
+            YPos = ""
             
             pub = NSMutableString()
             pub = ""
-            name = NSMutableString()
-            name = ""
             
             roadaddr = NSMutableString()
             roadaddr = ""
@@ -118,21 +157,28 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate,
         }
     }
     
-    func parser(_ parser: XMLParser, foundCharacters string: String)
+    func parser(_ parser: XMLParser, foundCharacters string: String!)
     {
-        if element.isEqual(to: "PUBLFACLT_DIV_NM") {
-            pub.append(string)
+        if element.isEqual(to: "PBCTLT_PLC_NM") {
+            yadmNm.append(string)
         }
-        else if element.isEqual(to: "PBCTLT_PLC_NM") {
-            name.append(string)
+        else if element.isEqual(to: "REFINE_LOTNO_ADDR") {
+            addr.append(string)
+        }
+        else if element.isEqual(to: "REFINE_WGS84_LOGT")
+        {
+            XPos.append(string)
+        }
+        else if element.isEqual(to: "REFINE_WGS84_LAT")
+        {
+            YPos.append(string)
+        }
+        else if element.isEqual(to: "PUBLFACLT_DIV_NM") {
+            pub.append(string)
         }
         else if element.isEqual(to: "REFINE_ROADNM_ADDR")
         {
             roadaddr.append(string)
-        }
-        else if element.isEqual(to: "REFINE_LOTNO_ADDR")
-        {
-            lotnoaddr.append(string)
         }
         else if element.isEqual(to: "MALE_FEMALE_TOILET_YN")
         {
@@ -201,216 +247,204 @@ class DetailToiletTableViewController: UITableViewController, XMLParserDelegate,
         {
             refinezip.append(string)
         }
+        if addr=="" {
+            if element.isEqual(to: "REFINE_ROADNM_ADDR") {
+                addr.append(string)
+            }
+        }
     }
-    var count = 0
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
+    
+    func parser(_ parser: XMLParser, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!)
     {
         if (elementName as NSString).isEqual(to: "row") {
-                
-            //print(count)
-            
+            if !yadmNm.isEqual(nil) {
+                elements.setObject(yadmNm, forKey: "PBCTLT_PLC_NM" as NSCopying)
+            }
+            if !addr.isEqual(nil) {
+                elements.setObject(addr, forKey: "REFINE_LOTNO_ADDR" as NSCopying)
+            }
+            if !XPos.isEqual(nil){
+                elements.setObject(XPos, forKey: "REFINE_WGS84_LOGT" as NSCopying)
+            }
+            if !YPos.isEqual(nil){
+                elements.setObject(YPos, forKey: "REFINE_WGS84_LAT" as NSCopying)
+            }
             if !pub.isEqual(nil) {
                 elements.setObject(pub, forKey: "PUBLFACLT_DIV_NM" as NSCopying)
-                posts.add(elements)
-            }
-            if !name.isEqual(nil) {
-                elements.setObject(name, forKey: "PBCTLT_PLC_NM" as NSCopying)
-                posts.add(elements)
             }
             if !roadaddr.isEqual(nil) {
                 elements.setObject(roadaddr, forKey: "REFINE_ROADNM_ADDR" as NSCopying)
-                posts.add(elements)
-            }
-            if !lotnoaddr.isEqual(nil) {
-                elements.setObject(lotnoaddr, forKey: "REFINE_LOTNO_ADDR" as NSCopying)
-                posts.add(elements)
             }
             if !malfmal.isEqual(nil) {
                 elements.setObject(malfmal, forKey: "MALE_FEMALE_TOILET_YN" as NSCopying)
-                posts.add(elements)
             }
             if !mwtr.isEqual(nil) {
                 elements.setObject(mwtr, forKey: "MALE_WTRCLS_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !muil.isEqual(nil) {
                 elements.setObject(muil, forKey: "MALE_UIL_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !mdspwtr.isEqual(nil) {
                 elements.setObject(mdspwtr, forKey: "MALE_DSPSN_WTRCLS_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !mdspuil.isEqual(nil) {
                 elements.setObject(mdspuil, forKey: "MALE_DSPSN_UIL_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !mchdwrt.isEqual(nil) {
                 elements.setObject(mchdwrt, forKey: "MALE_CHILDUSE_WTRCLS_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !mchduil.isEqual(nil) {
                 elements.setObject(mchduil, forKey: "MALE_CHILDUSE_UIL_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !fwtr.isEqual(nil) {
                 elements.setObject(fwtr, forKey: "FEMALE_WTRCLS_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !fdspwtr.isEqual(nil) {
                 elements.setObject(fdspwtr, forKey: "FEMALE_DSPSN_WTRCLS_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !fchdwrt.isEqual(nil) {
                 elements.setObject(fchdwrt, forKey: "FEMALE_CHILDUSE_WTRCLS_CNT" as NSCopying)
-                posts.add(elements)
             }
             if !managename.isEqual(nil) {
                 elements.setObject(managename, forKey: "MANAGE_INST_NM" as NSCopying)
-                posts.add(elements)
             }
             if !tel.isEqual(nil) {
                 elements.setObject(tel, forKey: "MANAGE_INST_TELNO" as NSCopying)
-                posts.add(elements)
             }
             if !open.isEqual(nil) {
                 elements.setObject(open, forKey: "OPEN_TM_INFO" as NSCopying)
-                posts.add(elements)
             }
             if !instlyy.isEqual(nil) {
                 elements.setObject(instlyy, forKey: "INSTL_YY" as NSCopying)
-                posts.add(elements)
             }
             if !datastd.isEqual(nil) {
                 elements.setObject(datastd, forKey: "DATA_STD_DE" as NSCopying)
-                posts.add(elements)
             }
             if !sigun.isEqual(nil) {
                 elements.setObject(sigun, forKey: "SIGUN_NM" as NSCopying)
-                posts.add(elements)
             }
             if !refinezip.isEqual(nil) {
                 elements.setObject(refinezip, forKey: "REFINE_ZIP_CD" as NSCopying)
-                posts.add(elements)
             }
-        
-            
-            if (posts.object(at: 1) as AnyObject).value(forKey: postskey[1]) as! NSString as String == selectedname{
-                count += 1
-            }
+            posts.add(elements)
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if segue.identifier == "segueToMapView" {
             if let mapViewController = segue.destination as? MapViewController{
-                if let detailToiletTableViewController = segue.destination as? MapViewController{
-                    mapViewController.posts.add(detailData)
+                mapViewController.posts = posts
+            }
+        }
+        if segue.identifier == "segueToToiletDetail" {
+            if let cell = sender as? UITableViewCell{
+                let indexPath = tableView.indexPath(for: cell)
+                //var detailposts = NSMutableArray()
+                let detailposts = (list.object(at:(indexPath?.row)!) as AnyObject)
+                //hospitalname = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "PBCTLT_PLC_NM") as! NSString as String
+                //hospitalname_utf8 = hospitalname.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                if let detailToiletTableViewController = segue.destination as? DetailToiletTableViewController{
+                    detailToiletTableViewController.url = url
+                    detailToiletTableViewController.selectedname = hospitalname
+                    detailToiletTableViewController.detailData = detailposts as! NSDictionary
                 }
             }
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //beginParsing()
+        beginParsing()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //print(posts.count)
-        return detailData.count-2
+        return list.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "ToiletCell")!
+        var cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         if(cell.isEqual(NSNull.self)) {
-            cell = Bundle.main.loadNibNamed("ToiletCell", owner: self, options: nil)?[0] as! UITableViewCell;
+            cell = Bundle.main.loadNibNamed("Cell", owner: self, options: nil)?[0] as! UITableViewCell;
         }
         
+        cell.textLabel?.text = (list.object(at: indexPath.row) as AnyObject).value(forKey: "PBCTLT_PLC_NM") as! NSString as String
+        cell.detailTextLabel?.text = (list.object(at: indexPath.row) as AnyObject).value(forKey: "REFINE_LOTNO_ADDR") as! NSString as String
         
-        cell.textLabel?.text = postsname[indexPath.row]
-        //cell.detailTextLabel?.text = posts[indexPath.row] as! String
-        //cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: postskey[indexPath.row]) as! NSString as String
-        cell.detailTextLabel?.text = detailData.value(forKey: postskey[indexPath.row]) as! NSString as String
-        
-        print(cell)
         return cell as UITableViewCell
     }
     
     /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+     
+     // Configure the cell...
+     
+     return cell
+     }
+     */
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }
