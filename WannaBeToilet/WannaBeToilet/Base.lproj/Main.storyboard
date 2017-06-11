@@ -22,22 +22,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cE-Iv-kfp">
-                                <rect key="frame" x="111" y="100" width="193" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cE-Iv-kfp">
+                                <rect key="frame" x="108" y="94" width="196" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="키워드 검색 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgB-7g-98v">
-                                <rect key="frame" x="16" y="105" width="87" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키워드 검색 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgB-7g-98v">
+                                <rect key="frame" x="16" y="94" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9cE-Iv-kfp" firstAttribute="leading" secondItem="dgB-7g-98v" secondAttribute="trailing" constant="5" id="HwK-bE-Lml"/>
+                            <constraint firstItem="9cE-Iv-kfp" firstAttribute="top" secondItem="GTT-Ca-MfJ" secondAttribute="bottom" constant="30" id="MAb-gU-K0p"/>
+                            <constraint firstItem="dgB-7g-98v" firstAttribute="top" secondItem="GTT-Ca-MfJ" secondAttribute="bottom" constant="30" id="OU3-2b-9LJ"/>
+                            <constraint firstItem="9cE-Iv-kfp" firstAttribute="trailing" secondItem="z8d-Cd-0UM" secondAttribute="trailingMargin" id="WnW-eQ-Ojx"/>
+                            <constraint firstItem="dgB-7g-98v" firstAttribute="leading" secondItem="z8d-Cd-0UM" secondAttribute="leadingMargin" id="gRm-gZ-1Rn"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cmh-5Z-vWd">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="559-kz-eMU">
@@ -351,9 +356,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfJ-qx-UvQ">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfJ-qx-UvQ">
                                 <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="fog-3H-Nc1" id="2jc-3a-3bf"/>
                                     <outlet property="delegate" destination="fog-3H-Nc1" id="zCx-y1-tei"/>
@@ -361,6 +365,12 @@
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tfJ-qx-UvQ" secondAttribute="trailing" id="Pkr-5O-9ts"/>
+                            <constraint firstItem="FBE-OR-UR7" firstAttribute="top" secondItem="tfJ-qx-UvQ" secondAttribute="bottom" id="j9f-RX-RXK"/>
+                            <constraint firstItem="tfJ-qx-UvQ" firstAttribute="top" secondItem="ddO-aN-ryG" secondAttribute="bottom" id="v9K-Pc-2vG"/>
+                            <constraint firstItem="tfJ-qx-UvQ" firstAttribute="leading" secondItem="fog-3H-Nc1" secondAttribute="leading" id="zaN-Hk-hNa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UFx-5t-Dsh">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="BKb-z9-d3J">
@@ -531,12 +541,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="reV-BD-fQ7">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="reV-BD-fQ7">
                                 <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="reV-BD-fQ7" secondAttribute="trailing" id="Mff-kv-KLh"/>
+                            <constraint firstItem="reV-BD-fQ7" firstAttribute="top" secondItem="q3t-jV-Mi5" secondAttribute="bottom" id="QLU-Oq-k1c"/>
+                            <constraint firstItem="reV-BD-fQ7" firstAttribute="leading" secondItem="Ca0-hk-7Rm" secondAttribute="leading" id="ZY0-eK-kSc"/>
+                            <constraint firstItem="qRU-Pe-nyT" firstAttribute="top" secondItem="reV-BD-fQ7" secondAttribute="bottom" id="eJA-vu-tb3"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="거리검색" id="GEH-ef-GuW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -548,10 +563,10 @@
             </objects>
             <point key="canvasLocation" x="131" y="998"/>
         </scene>
-        <!--자료출처-->
+        <!--앱 정보-->
         <scene sceneID="ifh-wb-b9h">
             <objects>
-                <viewController title="자료출처" id="GOM-yD-ABB" sceneMemberID="viewController">
+                <viewController title="앱 정보" id="GOM-yD-ABB" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dpb-Ic-2e5"/>
                         <viewControllerLayoutGuide type="bottom" id="MNS-fv-Ugh"/>
@@ -559,9 +574,23 @@
                     <view key="view" contentMode="scaleToFill" id="eqh-TF-AQq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="개발자  한국산업기술대학교 권준범, 김성두  OpenAPI 제공 - 경기 데이터 드림       http://openapi.gg.go.kr/Publtolt" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTR-2i-6lo">
+                                <rect key="frame" x="16" y="20" width="288" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fTR-2i-6lo" firstAttribute="top" secondItem="Dpb-Ic-2e5" secondAttribute="bottom" id="5Ih-fh-w9t"/>
+                            <constraint firstItem="MNS-fv-Ugh" firstAttribute="top" secondItem="fTR-2i-6lo" secondAttribute="bottom" id="Ll2-qk-fjV"/>
+                            <constraint firstItem="fTR-2i-6lo" firstAttribute="leading" secondItem="eqh-TF-AQq" secondAttribute="leadingMargin" id="Mj6-lb-oog"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fTR-2i-6lo" secondAttribute="trailing" id="Xfv-oo-qT5"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="자료출처" id="sxK-NL-fPs"/>
+                    <tabBarItem key="tabBarItem" title="앱 정보" id="sxK-NL-fPs" userLabel="앱 정보"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSo-jf-x1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -580,24 +609,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L7b-kY-5GB">
-                                <rect key="frame" x="16" y="103" width="288" height="253"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L7b-kY-5GB">
+                                <rect key="frame" x="16" y="106" width="288" height="325"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wA-vg-0JJ">
-                                <rect key="frame" x="198" y="65" width="82" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wA-vg-0JJ">
+                                <rect key="frame" x="202" y="66" width="82" height="30"/>
                                 <state key="normal" title="음성인식 종료"/>
                                 <connections>
                                     <action selector="StopSpeechAction:" destination="LJ0-yL-Pjw" eventType="touchUpInside" id="4RM-Zt-pun"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-5V-1m2">
-                                <rect key="frame" x="36" y="65" width="82" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-5V-1m2">
+                                <rect key="frame" x="36" y="66" width="82" height="30"/>
                                 <state key="normal" title="음성인식 시작"/>
                                 <connections>
                                     <action selector="StartSpeechAction:" destination="LJ0-yL-Pjw" eventType="touchUpInside" id="oom-oV-8Pt"/>
@@ -605,6 +631,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1wA-vg-0JJ" secondAttribute="trailing" constant="20" id="0Bl-BC-f5T"/>
+                            <constraint firstItem="1wA-vg-0JJ" firstAttribute="top" secondItem="gWK-t9-HdD" secondAttribute="bottom" constant="2" id="C6b-WS-KSa"/>
+                            <constraint firstItem="dh6-qC-1Of" firstAttribute="top" secondItem="L7b-kY-5GB" secondAttribute="bottom" id="MZN-p0-PKf"/>
+                            <constraint firstItem="L7b-kY-5GB" firstAttribute="trailing" secondItem="BFy-9G-McB" secondAttribute="trailingMargin" id="QIh-HD-hub"/>
+                            <constraint firstItem="L7b-kY-5GB" firstAttribute="leading" secondItem="BFy-9G-McB" secondAttribute="leadingMargin" id="Uxw-Ez-J4W"/>
+                            <constraint firstItem="L7b-kY-5GB" firstAttribute="top" secondItem="q8h-5V-1m2" secondAttribute="bottom" constant="10" id="V7P-Cx-qMV"/>
+                            <constraint firstItem="q8h-5V-1m2" firstAttribute="leading" secondItem="BFy-9G-McB" secondAttribute="leadingMargin" constant="20" id="iTg-V3-6ea"/>
+                            <constraint firstItem="q8h-5V-1m2" firstAttribute="top" secondItem="gWK-t9-HdD" secondAttribute="bottom" constant="2" id="ohJ-8P-JtN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5Bw-xg-4uB">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="rGK-8t-PSz">
