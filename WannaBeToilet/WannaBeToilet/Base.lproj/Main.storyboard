@@ -34,6 +34,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="063941.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="n2q-27-pI5">
+                                <rect key="frame" x="75" y="254" width="170" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="VpZ-RR-ToP"/>
+                                    <constraint firstAttribute="height" constant="127" id="a4P-iD-SZz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -42,6 +49,8 @@
                             <constraint firstItem="dgB-7g-98v" firstAttribute="top" secondItem="GTT-Ca-MfJ" secondAttribute="bottom" constant="30" id="OU3-2b-9LJ"/>
                             <constraint firstItem="9cE-Iv-kfp" firstAttribute="trailing" secondItem="z8d-Cd-0UM" secondAttribute="trailingMargin" id="WnW-eQ-Ojx"/>
                             <constraint firstItem="dgB-7g-98v" firstAttribute="leading" secondItem="z8d-Cd-0UM" secondAttribute="leadingMargin" id="gRm-gZ-1Rn"/>
+                            <constraint firstItem="sMV-WA-43f" firstAttribute="top" secondItem="n2q-27-pI5" secondAttribute="bottom" constant="50" id="p8h-ag-pub"/>
+                            <constraint firstItem="n2q-27-pI5" firstAttribute="centerX" secondItem="z8d-Cd-0UM" secondAttribute="centerX" id="yW5-VN-KWd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cmh-5Z-vWd">
@@ -387,7 +396,7 @@
             </objects>
             <point key="canvasLocation" x="-1035" y="1765"/>
         </scene>
-        <!--화장실 TableView-->
+        <!--Toilet Table View Controller-->
         <scene sceneID="8p4-eO-qT0">
             <objects>
                 <tableViewController id="vyj-Ja-FvQ" customClass="ToiletTableViewController" customModule="WannaBeToilet" customModuleProvider="target" sceneMemberID="viewController">
@@ -429,7 +438,7 @@
                             <outlet property="delegate" destination="vyj-Ja-FvQ" id="rNt-W8-4d1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="화장실 TableView" id="mqo-8c-FWR">
+                    <navigationItem key="navigationItem" id="mqo-8c-FWR">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9pr-7k-Bh4">
                             <connections>
                                 <segue destination="nWy-hU-pdr" kind="unwind" unwindAction="doneToPickerViewControllerWithSegue:" id="Pvu-6l-0mj"/>
@@ -553,7 +562,7 @@
                             <constraint firstItem="qRU-Pe-nyT" firstAttribute="top" secondItem="reV-BD-fQ7" secondAttribute="bottom" id="eJA-vu-tb3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="거리검색" id="GEH-ef-GuW"/>
+                    <tabBarItem key="tabBarItem" title="거리검색" image="map.png" id="GEH-ef-GuW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="reV-BD-fQ7" id="qdA-e4-USm"/>
@@ -578,25 +587,36 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTR-2i-6lo">
                                 <rect key="frame" x="16" y="20" width="288" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">개발자  한국산업기술대학교 권준범, 김성두  OpenAPI 제공 - 경기 데이터 드림       http://openapi.gg.go.kr/Publtolt  인트로 및 아이콘 이미지 - 네이버카페 피버당       http://cafe.naver.com/feverdang</string>
+                                <string key="text">개발자  한국산업기술대학교 권준범, 김성두  OpenAPI 제공 - 경기 데이터 드림       http://openapi.gg.go.kr/Publtolt  인트로 및 아이콘 이미지 - 네이버카페 피버당       http://cafe.naver.com/feverdang - https://www.ac-illust.com/ - http://www.flaticon.com/packs/ios7-premium-2</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="079895.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Fl-ht-2y2">
+                                <rect key="frame" x="96.5" y="254" width="127" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="COJ-n4-W1X"/>
+                                    <constraint firstAttribute="height" constant="127" id="ZMb-nB-pYF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fTR-2i-6lo" firstAttribute="top" secondItem="Dpb-Ic-2e5" secondAttribute="bottom" id="5Ih-fh-w9t"/>
                             <constraint firstItem="MNS-fv-Ugh" firstAttribute="top" secondItem="fTR-2i-6lo" secondAttribute="bottom" id="Ll2-qk-fjV"/>
                             <constraint firstItem="fTR-2i-6lo" firstAttribute="leading" secondItem="eqh-TF-AQq" secondAttribute="leadingMargin" id="Mj6-lb-oog"/>
+                            <constraint firstItem="MNS-fv-Ugh" firstAttribute="top" secondItem="2Fl-ht-2y2" secondAttribute="bottom" constant="50" id="N3g-zf-vkA"/>
+                            <constraint firstItem="2Fl-ht-2y2" firstAttribute="centerX" secondItem="eqh-TF-AQq" secondAttribute="centerX" id="RA0-Lh-zxb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fTR-2i-6lo" secondAttribute="trailing" id="Xfv-oo-qT5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="앱 정보" id="sxK-NL-fPs" userLabel="앱 정보"/>
+                    <tabBarItem key="tabBarItem" title="앱 정보" image="infomation.png" id="sxK-NL-fPs" userLabel="앱 정보">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSo-jf-x1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="864.08450704225356"/>
+            <point key="canvasLocation" x="1020" y="863.75"/>
         </scene>
         <!--음성검색-->
         <scene sceneID="Mne-0A-31J">
@@ -630,6 +650,13 @@
                                     <action selector="StartSpeechAction:" destination="LJ0-yL-Pjw" eventType="touchUpInside" id="oom-oV-8Pt"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="063942.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-k1-CJ4">
+                                <rect key="frame" x="96.5" y="254" width="127" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="PAc-L2-xpd"/>
+                                    <constraint firstAttribute="height" constant="127" id="y2U-LI-Uf0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -639,8 +666,10 @@
                             <constraint firstItem="L7b-kY-5GB" firstAttribute="trailing" secondItem="BFy-9G-McB" secondAttribute="trailingMargin" id="QIh-HD-hub"/>
                             <constraint firstItem="L7b-kY-5GB" firstAttribute="leading" secondItem="BFy-9G-McB" secondAttribute="leadingMargin" id="Uxw-Ez-J4W"/>
                             <constraint firstItem="L7b-kY-5GB" firstAttribute="top" secondItem="q8h-5V-1m2" secondAttribute="bottom" constant="10" id="V7P-Cx-qMV"/>
+                            <constraint firstItem="dh6-qC-1Of" firstAttribute="top" secondItem="W4e-k1-CJ4" secondAttribute="bottom" constant="50" id="aD5-3R-Zlk"/>
                             <constraint firstItem="q8h-5V-1m2" firstAttribute="leading" secondItem="BFy-9G-McB" secondAttribute="leadingMargin" constant="20" id="iTg-V3-6ea"/>
                             <constraint firstItem="q8h-5V-1m2" firstAttribute="top" secondItem="gWK-t9-HdD" secondAttribute="bottom" constant="2" id="ohJ-8P-JtN"/>
+                            <constraint firstItem="W4e-k1-CJ4" firstAttribute="centerX" secondItem="BFy-9G-McB" secondAttribute="centerX" id="tOz-gf-GD8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5Bw-xg-4uB">
@@ -697,25 +726,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ddong.png" translatesAutoresizingMaskIntoConstraints="NO" id="FVb-UM-qxP">
-                                <rect key="frame" x="85" y="120" width="150" height="150"/>
+                                <rect key="frame" x="60" y="120" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="QLK-uj-0mT"/>
-                                    <constraint firstAttribute="height" constant="150" id="veH-mC-WLT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Li0-la-YKf"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="XP9-WJ-uy7"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아 X 마려워" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-r7-7zJ">
-                                <rect key="frame" x="68" y="382" width="184" height="48"/>
+                                <rect key="frame" x="68" y="332" width="184" height="48"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.90304904513888884" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="FVb-UM-qxP" firstAttribute="top" secondItem="ONA-EF-ScS" secondAttribute="bottom" constant="100" id="8Zj-21-5a5"/>
                             <constraint firstItem="FVb-UM-qxP" firstAttribute="centerX" secondItem="qxK-H9-0SH" secondAttribute="centerX" id="8uF-wH-400"/>
-                            <constraint firstItem="FVb-UM-qxP" firstAttribute="top" secondItem="ONA-EF-ScS" secondAttribute="bottom" constant="100" id="HTt-xN-tiO"/>
                             <constraint firstItem="JBQ-r7-7zJ" firstAttribute="centerX" secondItem="qxK-H9-0SH" secondAttribute="centerX" id="Kkr-Xh-8cc"/>
-                            <constraint firstItem="O0v-ss-Xw6" firstAttribute="top" secondItem="JBQ-r7-7zJ" secondAttribute="bottom" constant="50" id="RDT-4k-4oa"/>
+                            <constraint firstItem="O0v-ss-Xw6" firstAttribute="top" secondItem="JBQ-r7-7zJ" secondAttribute="bottom" constant="100" id="RDT-4k-4oa"/>
                         </constraints>
                     </view>
                     <connections>
@@ -730,7 +759,7 @@
         <scene sceneID="MBE-nd-w0B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ywE-VB-Okn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="지역검색" id="OMn-Zq-awC"/>
+                    <tabBarItem key="tabBarItem" title="지역검색" image="location.png" selectedImage="location.png" id="OMn-Zq-awC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PUV-gt-9T7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -749,7 +778,7 @@
         <scene sceneID="usP-Gi-tZC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WgZ-h0-bIf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="키워드검색" id="O9g-fY-NIc"/>
+                    <tabBarItem key="tabBarItem" title="키워드검색" image="keyword.png" id="O9g-fY-NIc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZmS-zJ-5LB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -804,7 +833,7 @@
         <scene sceneID="sme-OV-FAD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n5H-td-UYz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="음성검색" id="pda-1n-dix"/>
+                    <tabBarItem key="tabBarItem" title="음성검색" image="mic.png" id="pda-1n-dix"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MmE-qT-XtO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -839,6 +868,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="063941.jpg" width="1290" height="1024"/>
+        <image name="063942.jpg" width="944" height="1074"/>
+        <image name="079895.png" width="1474" height="1639"/>
         <image name="ddong.png" width="80" height="80"/>
+        <image name="infomation.png" width="32" height="32"/>
+        <image name="keyword.png" width="32" height="32"/>
+        <image name="location.png" width="32" height="32"/>
+        <image name="map.png" width="32" height="32"/>
+        <image name="mic.png" width="32" height="32"/>
     </resources>
 </document>
