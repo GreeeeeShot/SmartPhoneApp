@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0319C1301EED770C00978F58 /* ddong.png in Resources */ = {isa = PBXBuildFile; fileRef = 0319C12F1EED770C00978F58 /* ddong.png */; };
+		0320B5FE1EF11C5800A9A8C4 /* 아이콘 50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0320B5F91EF11C5800A9A8C4 /* 아이콘 50x50.png */; };
+		0320B5FF1EF11C5800A9A8C4 /* 아이콘 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 0320B5FA1EF11C5800A9A8C4 /* 아이콘 72x72.png */; };
+		0320B6001EF11C5800A9A8C4 /* 아이콘 100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 0320B5FB1EF11C5800A9A8C4 /* 아이콘 100x100.png */; };
+		0320B6011EF11C5800A9A8C4 /* 아이콘 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 0320B5FC1EF11C5800A9A8C4 /* 아이콘 144x144.png */; };
+		0320B6021EF11C5800A9A8C4 /* 아이콘20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 0320B5FD1EF11C5800A9A8C4 /* 아이콘20x20.png */; };
 		037759F81EF02EDD0011AF85 /* keyword.png in Resources */ = {isa = PBXBuildFile; fileRef = 037759F31EF02EDC0011AF85 /* keyword.png */; };
 		037759F91EF02EDD0011AF85 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 037759F41EF02EDD0011AF85 /* location.png */; };
 		037759FA1EF02EDD0011AF85 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 037759F51EF02EDD0011AF85 /* map.png */; };
@@ -43,6 +48,11 @@
 
 /* Begin PBXFileReference section */
 		0319C12F1EED770C00978F58 /* ddong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ddong.png; sourceTree = "<group>"; };
+		0320B5F91EF11C5800A9A8C4 /* 아이콘 50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아이콘 50x50.png"; sourceTree = "<group>"; };
+		0320B5FA1EF11C5800A9A8C4 /* 아이콘 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아이콘 72x72.png"; sourceTree = "<group>"; };
+		0320B5FB1EF11C5800A9A8C4 /* 아이콘 100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아이콘 100x100.png"; sourceTree = "<group>"; };
+		0320B5FC1EF11C5800A9A8C4 /* 아이콘 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아이콘 144x144.png"; sourceTree = "<group>"; };
+		0320B5FD1EF11C5800A9A8C4 /* 아이콘20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "아이콘20x20.png"; sourceTree = "<group>"; };
 		037759F31EF02EDC0011AF85 /* keyword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyword.png; sourceTree = "<group>"; };
 		037759F41EF02EDD0011AF85 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		037759F51EF02EDD0011AF85 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
@@ -111,6 +121,11 @@
 				03775A041EF040BA0011AF85 /* 아이콘 40x40.png */,
 				03775A051EF040BA0011AF85 /* 아이콘 58x58.png */,
 				03775A061EF040BA0011AF85 /* 아이콘 76x76.png */,
+				0320B5F91EF11C5800A9A8C4 /* 아이콘 50x50.png */,
+				0320B5FA1EF11C5800A9A8C4 /* 아이콘 72x72.png */,
+				0320B5FB1EF11C5800A9A8C4 /* 아이콘 100x100.png */,
+				0320B5FC1EF11C5800A9A8C4 /* 아이콘 144x144.png */,
+				0320B5FD1EF11C5800A9A8C4 /* 아이콘20x20.png */,
 				03775A071EF040BA0011AF85 /* 아이콘 80x80.png */,
 				03775A081EF040BA0011AF85 /* 아이콘 152x152.png */,
 				03775A091EF040BA0011AF85 /* 아이콘 167x167.png */,
@@ -211,18 +226,23 @@
 				03775A011EF035EF0011AF85 /* 063941.jpg in Resources */,
 				03775A111EF040BA0011AF85 /* 아이콘29x29.png in Resources */,
 				037759FA1EF02EDD0011AF85 /* map.png in Resources */,
+				0320B6021EF11C5800A9A8C4 /* 아이콘20x20.png in Resources */,
 				037759FB1EF02EDD0011AF85 /* mic.png in Resources */,
+				0320B6011EF11C5800A9A8C4 /* 아이콘 144x144.png in Resources */,
 				037759F91EF02EDD0011AF85 /* location.png in Resources */,
 				0319C1301EED770C00978F58 /* ddong.png in Resources */,
+				0320B5FF1EF11C5800A9A8C4 /* 아이콘 72x72.png in Resources */,
 				03775A0D1EF040BA0011AF85 /* 아이콘 76x76.png in Resources */,
 				03CCBCA81EED7BFD001CAC93 /* icon.png in Resources */,
 				03775A031EF035EF0011AF85 /* 079895.png in Resources */,
 				0391E2771ED1E66C00B64885 /* LaunchScreen.storyboard in Resources */,
 				0391E2741ED1E66C00B64885 /* Assets.xcassets in Resources */,
 				037759FD1EF0338D0011AF85 /* infomation.png in Resources */,
+				0320B5FE1EF11C5800A9A8C4 /* 아이콘 50x50.png in Resources */,
 				03775A0C1EF040BA0011AF85 /* 아이콘 58x58.png in Resources */,
 				03775A021EF035EF0011AF85 /* 063942.jpg in Resources */,
 				0391E2721ED1E66C00B64885 /* Main.storyboard in Resources */,
+				0320B6001EF11C5800A9A8C4 /* 아이콘 100x100.png in Resources */,
 				037759F81EF02EDD0011AF85 /* keyword.png in Resources */,
 				03775A0B1EF040BA0011AF85 /* 아이콘 40x40.png in Resources */,
 			);
@@ -368,26 +388,28 @@
 		0391E27C1ED1E66C00B64885 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = 5K89RS36D9;
 				INFOPLIST_FILE = WannaBeToilet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kpu.2017class.WannaBeToilet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		0391E27D1ED1E66C00B64885 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = 5K89RS36D9;
 				INFOPLIST_FILE = WannaBeToilet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kpu.2017class.WannaBeToilet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
